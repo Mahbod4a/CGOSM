@@ -1,23 +1,50 @@
-### AL ###
-#Template for AL projects for Dynamics 365 Business Central
-#launch.json folder
+# ═══════════════════════════════════════════════════════════════
+#  AIS Global Tracker — Git Ignore
+# ═══════════════════════════════════════════════════════════════
+
+# ── Environment secrets (NEVER commit) ─────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Data (runtime files) ───────────────────────────────────────
+AIS_Data/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.log
+
+# ── Python ─────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ── Virtual environments ───────────────────────────────────────
+venv/
+.venv/
+env/
+ENV/
+
+# ── IDE / Editor ───────────────────────────────────────────────
 .vscode/
-#Cache folder
-.alcache/
-#Symbols folder
-.alpackages/
-#Snapshots folder
-.snapshots/
-#Testing Output folder
-.output/
-#Extension App-file
-*.app
-#Rapid Application Development File
-rad.json
-#Translation Base-file
-*.g.xlf
-#License-files
-*.bclicense
-*.flf
-#Test results file
-TestResults.xml
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ── OS ─────────────────────────────────────────────────────────
+Thumbs.db
+desktop.ini
+
+# ── Docker ─────────────────────────────────────────────────────
+.dockerignore
+docker-compose.override.yml
