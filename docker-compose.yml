@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  ais-tracker:
+    build: .
+    container_name: ais-tracker
+    restart: unless-stopped
+    ports:
+      - "7999:7999"
+    env_file:
+      - .env
+    environment:
+      - AIS_DATA_DIR=/data
+    volumes:
+      - ais-data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:7999/api/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  ais-data:
+    driver: local
